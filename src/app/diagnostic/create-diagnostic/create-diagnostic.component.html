@@ -1,114 +1,103 @@
+<div class="container-fluid"> 
+  <div class="text-center">   
+    <img src="../../../assets/Logo_Endotest_Medical_HORIZONTAL.jpeg" alt="Logo Endotest" width="400px">
+  </div>
+</div>
 <div class="container-fluid">
-    <div class="container">
-      <h2>Buscar Paciente</h2>
-      <img src="data:image/png;base64,{{image}}" alt="" width="auto">
-      <form  [formGroup]="findPatienceForm">
-        <div class="form-group">
-          <label for="email">Nro. Documento</label>
-          <input type="email" class="form-control" formControlName="documentNumberPatience">
+  <div class="container">
+    <h2 *ngIf="isVisibleFindUser">Buscar Paciente</h2>
+    <!--<img src="data:image/png;base64,{{image}}" alt="" width="auto">-->
+    <form [formGroup]="findPatienceForm" *ngIf="isVisibleFindUser">
+      <div class="form-group">
+        <label for="email">Nro. Documento</label>
+        <input type="email" class="form-control me-2" formControlName="documentNumberPatience">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-outline-success" type="submit" (click)="searchClient()">Crear diagnostico</button>
+        <button class="btn btn-outline-success" type="submit" [routerLink]="['/paciente']">Crear paciente nuevo</button>
+      </div>
+    </form>
+  </div>
+
+  <hr>
+  <div class="container" *ngIf="customerFound">
+    <h2>Crear Diagnostico</h2>
+    <div class="col-sm-12">
+      <form [formGroup]="diagnosticForm">
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <input type="text" class="form-control" formControlName="idPatient" readonly=true>
+          </div>
         </div>
-        <div class="form-group">
-          <button type="submit"
-            class="btn btn-primary"
-            (click)="searchClient()">
-            Buscar
-          </button>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <input type="text" class="form-control" formControlName="eps" placeholder="Nombre de la EPS">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <textarea class="form-control" formControlName="reasonForConsultation"
+              placeholder="Razon de la consulta"></textarea>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <textarea class="form-control" formControlName="observations" placeholder="Observaciones"></textarea>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <textarea class="form-control" formControlName="physicalExam" placeholder="Examenes Fisicos"></textarea>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <textarea class="form-control" formControlName="antecedent" placeholder="Antecedentes"></textarea>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="file">Imagen 1</label>
+              <input type="file" class="form-control" formControlName="files" (change)="handleFileInput($event)">
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="file">Imagen 2</label>
+              <input type="file" class="form-control" formControlName="files" (change)="handleFileInput($event)">
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="file">Imagen 3</label>
+              <input type="file" class="form-control" formControlName="files" (change)="handleFileInput($event)">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button type="submit" (click)="createDiagnostic()" class="btn btn-primary float-end">
+              Guardar
+            </button>
+          </div>
         </div>
       </form>
     </div>
-
-    <hr>
-    <div class="container" *ngIf="customerFound">
-      <h2>Crear Diagnostico</h2>
-        <div class="col-sm-12">
-            <form autocomplete="off" [formGroup]="diagnosticForm">
-
-              <div class="mb-3 row">
-                <div class="col-sm-6">
-                  <input type="text"
-                    class="form-control"
-                    formControlName="idPatient"
-                    readonly=true>
-                </div>
-              </div>
-
-                <div class="mb-3 row">
-                  <div class="col-sm-6">
-                    <input type="text"
-                      class="form-control"
-                      formControlName="eps"
-                      placeholder="Nombre de la EPS">
-                  </div>
-                </div>
-
-                <div class="mb-3 row">
-                  <div class="col-sm-6">
-                    <input type="text"
-                      class="form-control"
-                      formControlName="idSpecialist"
-                      placeholder="Especialista">
-                  </div>
-                </div>
-
-                <div class="mb-3 row">
-                  <div class="col-sm-6">
-                    <textarea 
-                      class="form-control" 
-                      formControlName="reasonForConsultation"
-                      placeholder="Razon de la consulta"></textarea>
-                  </div>
-                </div>
-
-                <div class="mb-3 row">
-                  <div class="col-sm-6">
-                    <textarea 
-                      class="form-control" 
-                      formControlName="observations"
-                      placeholder="Observaciones"></textarea>
-                  </div>
-                </div>
-
-                <div class="mb-3 row">
-                  <div class="col-sm-6">
-                    <textarea 
-                      class="form-control" 
-                      formControlName="physicalExam"
-                      placeholder="Examenes Fisicos"></textarea>
-                  </div>
-                </div>
-
-                <div class="mb-3 row">
-                  <div class="col-sm-6">
-                    <textarea 
-                      class="form-control" 
-                      formControlName="antecedent"
-                      placeholder="Antecedentes"></textarea>
-                  </div>
-                </div>
-
-                <div class="mb-3 row">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label for="file">Imagen 1</label>
-                      <input type="file"
-                             class="form-control"
-                             formControlName="files"
-                             multiple
-                             (change)="handleFileInput($event)">
-                  </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                      <button type="submit"
-                              (click)="createDiagnostic()"
-                              class="btn btn-primary float-end">
-                          Guardar
-                      </button>
-                  </div>
-              </div>
-            </form>
-        </div>
-    </div>
   </div>
+  <app-pdf [dianostic]="diagnosticData" *ngIf="isVisiblePdf"></app-pdf>
+</div>

@@ -12,6 +12,8 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ClientComponent } from './components/client/client.component';
+import { PdfComponent } from './components/pdf/pdf.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ClientComponent } from './components/client/client.component';
     AppComponent,
     CreateDiagnosticComponent,
     HomeComponent,
-    ClientComponent
+    ClientComponent,
+    PdfComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

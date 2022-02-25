@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import { Diagnostic } from '../../interfaces/diagnostic.interface';
 import { PersonService } from '../../services/person/person.service';
 import { DiagnosticResponse } from '../../interfaces/response.diagnostic.interface';
-import { Image } from '../../interfaces/image.interface';
 
 @Component({
   selector: 'app-create-diagnostic',
@@ -20,6 +19,9 @@ export class CreateDiagnosticComponent implements OnInit {
   public customerFound : Boolean;
   public idPerson: Number;
   public image: String;
+  public diagnosticData: DiagnosticResponse;
+  public isVisiblePdf : Boolean;
+  public isVisibleFindUser: Boolean;
 
   constructor(
     public diagnosticService : DiagnosticService,
@@ -30,13 +32,8 @@ export class CreateDiagnosticComponent implements OnInit {
     this.buildFormDiagnostic();
     this.buildFormFindClient();
     this.customerFound = false;
-    this.diagnosticService.getDiagnosticsOfClientByDocumentNumber("11257896556").subscribe({
-      next: (response: DiagnosticResponse[]) => {
-        console.log(response[0].images[0]);
-        this.image = response[0].images[0].image;
-      },
-      error: (e) => console.log(e)
-    });
+    this.isVisiblePdf = false;
+    this.isVisibleFindUser = true;
   }
 
   createDiagnostic(){
@@ -59,14 +56,18 @@ export class CreateDiagnosticComponent implements OnInit {
     }
     
     this.diagnosticService.createDiagnostic(diagnosticInfo).subscribe({
-      next: (diagnosticResponse) => {
+      next: (diagnosticResponse: DiagnosticResponse) => {
         Swal.fire(
           `El diagnostico fue creado exitosamente`,
           '',
           'success'
         );
+        console.log(diagnosticResponse)
         this.diagnosticForm.reset();
         this.customerFound = false;
+        this.diagnosticData = diagnosticResponse;
+        this.customerFound = false;
+        this.isVisiblePdf = true;
       },
       error: (e) => {
         console.log(e)
@@ -77,6 +78,7 @@ export class CreateDiagnosticComponent implements OnInit {
         })
         this.diagnosticForm.reset();
         this.customerFound = false;
+        this.isVisiblePdf = false;
       }
     });
   }
@@ -106,6 +108,7 @@ export class CreateDiagnosticComponent implements OnInit {
             Swal.fire('Crear Diagnostico', '', 'success')
             this.findPatienceForm.reset();
             this.customerFound = true;
+            this.isVisibleFindUser = false;
             this.idPerson = patienceResponse.id;
             this.diagnosticForm.controls['idPatient'].setValue(patienceResponse.documentNumber);
             this.findPatienceForm.reset();
@@ -145,7 +148,6 @@ export class CreateDiagnosticComponent implements OnInit {
       physicalExam: [, Validators.required],
       antecedent: [, Validators.required],
       idPatient: [, Validators.required],
-      idSpecialist: [, Validators.required],
       files: [, Validators.required]
     });
   }

@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strictPropertyInitialization": false,
     "strict": true,
@@ -25,6 +26,7 @@
     ]
   },
   "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

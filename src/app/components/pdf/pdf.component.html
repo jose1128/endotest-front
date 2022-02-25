@@ -1,0 +1,133 @@
+<style>
+    body {
+        position: initial;
+        margin: 0;
+        text-align: justify;
+        border-collapse: collapse;
+    }
+
+    p {
+        font-size: 12;
+        font-family: 'Times New Roman';
+        width: auto;
+        max-width: auto;
+        word-break: break-all;
+    }
+
+    table {
+        font-size: 12;
+        font-family: 'Times New Roman';
+        width: auto;
+        max-width: auto;
+        word-break: break-all;
+    }
+
+    h2 {
+        font-size: 12;
+        font-family: 'Times New Roman';
+        width: auto;
+        max-width: auto;
+        word-break: break-all;
+
+    }
+
+    th {
+        font-size: 12;
+        font-family: 'Times New Roman';
+    }
+
+    td {
+        font-size: 12;
+        font-family: 'Times New Roman';
+    }
+</style>
+<div class="container" id="htmlData">
+    <h2>
+        <p style="text-align:center;">
+            <b>Informe medico</b>
+        </p>
+    </h2>
+    <div class="col-md-12">
+        <table>
+            <tr>
+                <th>
+                    <h2>Medico:</h2>
+                </th>
+                <td [width]="500">
+                    <h2>{{dianostic.specialist.name}}</h2>
+                </td>
+                <th>
+                    <h2>Fecha:</h2>
+                </th>
+                <td [width]="500">
+                    <h2>10/02/2020</h2>
+                </td>
+            </tr>
+            <tr>
+                <th [width]="500">
+                    <h2>Paciente:</h2>
+                </th>
+                <td [width]="500">
+                    <h2>{{dianostic.patient.name}}</h2>
+                </td>
+                <th [width]="500">
+                    <h2>Historia:</h2>
+                </th>
+                <td [width]="500">
+                    <h2>2561876516</h2>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h2>Edad:</h2>
+                </th>
+                <td [width]="500">
+                    <h2>55</h2>
+                </td>
+                <th>
+                    <h2>Tipo de estudio:</h2>
+                </th>
+                <td [width]="500">
+                    <h2>Colonoscopia</h2>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    <div class="col-md-12">
+        <h2>Resultado de estudios</h2>
+        <br>
+        <table>
+            <td [width]="520" [height]="365">
+                <div class="text-center">
+                    <img src="data:image/png;base64,{{dianostic.images[0].image}}" class="rounded" alt="...">
+                </div>
+            </td>
+            <td [width]="520" [height]="365">
+                <div class="text-center">
+                    <img src="data:image/png;base64,{{dianostic.images[1].image}}" class="rounded" alt="...">
+                </div>
+            </td>
+            <td [width]="520" [height]="365">
+                <div class="text-center">
+                    <img src="data:image/png;base64,{{dianostic.images[2].image}}" class="rounded" alt="...">
+                </div>
+            </td>
+        </table>
+    </div>
+    <br>
+    <div>
+        <h1>
+            <p><b>Descripcion:</b></p>
+        </h1>
+        <h2>
+            {{dianostic.observations}}
+        </h2>
+        <br>
+    </div>
+</div>
+<div class="container">
+    <button type="button" class="btn btn-success" (click)="downloadPDF()">Descargar PDF</button>
+    <button type="button" class="btn btn-success" (click)="refresh()">Regresar</button>
+</div>

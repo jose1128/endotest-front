@@ -13,7 +13,7 @@ export class DiagnosticService {
 
   constructor(private http: HttpClient) { }
 
-  createDiagnostic(diagnosticData : Diagnostic) : Observable<Diagnostic>{
+  createDiagnostic(diagnosticData : Diagnostic) : Observable<DiagnosticResponse>{
     const url = `${ this.apiUrl }/exam`;
 
     let httpOptions = {
@@ -30,11 +30,10 @@ export class DiagnosticService {
 
     const formData = new FormData()
   
-    formData.append("images", diagnosticData.filesToUpload[0], diagnosticData.filesToUpload[0].name);
-    formData.append("images", diagnosticData.filesToUpload[1], diagnosticData.filesToUpload[1].name);
-    formData.append("images", diagnosticData.filesToUpload[2], diagnosticData.filesToUpload[2].name);
-    console.log(formData);
-    return this.http.post<Diagnostic>(url, formData, httpOptions);
+    formData.append("image1", diagnosticData.filesToUpload[0]);
+    formData.append("image2", diagnosticData.filesToUpload[1]);
+    formData.append("image3", diagnosticData.filesToUpload[2]);
+    return this.http.post<DiagnosticResponse>(url, formData, httpOptions);
   }
 
   getAllDiagnostics() : Observable<Diagnostic[]>{
