@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(userData).subscribe({
       next: (response: any) =>{
         if(response.status === "OK"){
-          this.router.navigate(['diagnostico']);
+          this.router.navigate(['home']);
         }else{
           alert("Error en el login")
         }

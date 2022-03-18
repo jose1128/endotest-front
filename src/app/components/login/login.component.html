@@ -1,27 +1,94 @@
-<div class="container" style="background-color:#0277bd;">
-    <div id="login" class="signin-card">
-        <div class="logo-image">
-            <img src="../../../assets/Logo_Endotest_Medical_HORIZONTAL.jpeg" alt="EndotestSoft_logo" title="Logo" width="200">
+<style>
+ 
+ HTML
+CSS
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+</style>
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-4">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" style="width: 185px; margin-bottom: 10px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">EndotestSoft</h4>
+                  </div>
+  
+                  <form action="" method=""  [formGroup]="loginForm">
+                    <p>Porfavor ingrese su cuenta</p>
+  
+                    <div class="form-outline mb-4">
+                      <input  id="username" class="form-control" name="username" type="text" size="18" alt="login"  required formControlName="userName"/>
+                      <label class="form-label" for="form2Example11">Usuario</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input id="passwd" class="form-control" name="password" type="password" size="18" alt="password"
+                      required formControlName="passwd"/>
+                      <label class="form-label" for="form2Example22">Password</label>
+                    </div>
+                    <div class="text-center pt-1 mb-5 pb-1">
+                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="Submit" alt="sign in" (click)="login()">Log in</button>
+                    </div>  
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      
+                     <div class="contact-details">
+                        <div class="con-info clearfix">
+                            <i class="fa fa-home fa-lg"></i>
+                            <span>Endotest</span>
+                        </div>
+                        <div class="con-info clearfix">
+                            <i class="fa fa-home fa-lg"></i>
+                            <span>Medellín, Antioquia</span>
+                        </div>
+                        <div class="con-info clearfix">
+                            <i class="fa fa-phone fa-lg"></i>
+                            <span>Celular:+57 3043536891</span>
+                        </div>
+                        <div class="con-info clearfix">
+                            <i class="fa fa-envelope fa-lg"></i>
+                            <span>Email: administracion@endotestmedical.com</span>
+                        </div>
+                        <a text-align="left" href="https://wa.me/573043536891/" target="_blank">
+                            <img src="../../../assets/WhatsApp-logo.jpg" width="13%">
+                         </a>
+                     </div>
+                      
+                    </div>
+  
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 class="display1">EndotestSoft</h1>
-        <form action="" method="" [formGroup]="loginForm">
-            <div id="form-login-username" class="form-group">
-                <input id="username" class="form-control" name="username" type="text" size="18" alt="login"  required formControlName="userName"/>
-                <span class="form-highlight"></span>
-                <span class="form-bar"></span>
-                <label for="username" class="float-label">Usuario</label>
-            </div>
-            <div id="form-login-password" class="form-group">
-                <input id="passwd" class="form-control" name="password" type="password" size="18" alt="password"
-                    required formControlName="passwd">
-                <span class="form-highlight"></span>
-                <span class="form-bar"></span>
-                <label for="password" class="float-label">Contraseña</label>
-            </div>
-            <div>
-                <button class="btn btn-block btn-info ripple-effect" type="submit" name="Submit" alt="sign in" (click)="login()">Sign
-                    in</button>
-            </div>
-        </form>
+      </div>
     </div>
-</div>
+  </section>
+   

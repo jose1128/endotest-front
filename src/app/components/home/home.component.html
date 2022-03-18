@@ -1,8 +1,174 @@
-<div class="container-fluid">
-  <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Buscar paciente" aria-label="Buscar paciente">
-    <br>
-    <button class="btn btn-outline-success" type="submit">Crear diagnostico nuevo</button>
-    <button class="btn btn-outline-success" type="submit">Crear paciente nuevo</button>
-  </form>
+<style>
+*{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background: #f5f6fa;
+}
+
+.wrapper .sidebar{
+    background: rgb(5, 68, 104);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+.wrapper .sidebar .profile{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.wrapper .sidebar .profile img{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.wrapper .sidebar .profile h3{
+    color: #ffffff;
+    margin: 5px 0 2px;
+}
+
+.wrapper .sidebar .profile p{
+    color: rgb(206, 240, 253);
+    font-size: 12px;
+}
+.wrapper .sidebar ul li a{
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #10558d;
+    color: rgb(237, 238, 241);
+    font-size: 12px;
+    position: relative;
+}
+
+.wrapper .sidebar ul li a .icon{
+    color: #dee4ec;
+    width: 30px;
+    display: inline-block;
+}
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+    color: #0c7db1;
+
+    background:rgb(255, 255, 255);
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon{
+    color: #0c7db1;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
+    display: block;
+}
+.wrapper .section{
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+}
+
+.wrapper .section .top_navbar{
+    background: rgb(7, 105, 185);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+
+}
+
+</style>
+<div class="row">
+  <div class="col-3">
+    <div class="wrapper">
+      <!--Top menu -->
+      <div class="sidebar">
+         <!--profile image & text-->
+          <!--menu item-->
+            <div class="profile">
+              <img src="../../../assets/Logo Endotest perfil.jpg" alt="profile_picture">
+              <h3>EndotestSoft</h3>
+              <p>Captura de imagenes</p>
+            </div>
+            <ul>
+              <li>
+                  <a href="#">
+                      <span class="icon"><i class="fas fa-home"></i></span>
+                      <span class="item">Home</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="../client/client.component.html">
+                      <span class="icon"><i class="fas fa-desktop"></i></span>
+                      <span class="item">Pacientes</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <span class="icon"><i class="fas fa-user-friends"></i></span>
+                      <span class="item">Diagnostico</span>
+                  </a>
+              </li>
+            
+              
+            </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <h4 style="margin-top: 10px; margin-bottom: 10px;">Buscar examenes</h4>
+    <div class="col-9">
+        <form action="" class="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control-lg" placeholder="Ingrese cedula del paciente">
+                <button type="submit" class="input-group-text btn-success" style="margin-left: 2PX;"> Buscar</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-9">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
 </div>
+
