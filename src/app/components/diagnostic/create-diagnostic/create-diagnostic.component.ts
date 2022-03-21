@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DiagnosticService } from 'src/app/services/diagnostic/diagnostic.service';
+import { DiagnosticService } from '../../../services/diagnostic/diagnostic.service';
 import Swal from 'sweetalert2';
-import { Diagnostic } from '../../interfaces/diagnostic.interface';
-import { PersonService } from '../../services/person/person.service';
-import { DiagnosticResponse } from '../../interfaces/response.diagnostic.interface';
+import { Diagnostic } from '../../../interfaces/diagnostic.interface';
+import { PersonService } from '../../../services/person/person.service';
+import { DiagnosticResponse } from '../../../interfaces/response.diagnostic.interface';
 
 @Component({
   selector: 'app-create-diagnostic',
@@ -157,4 +157,4 @@ export class CreateDiagnosticComponent implements OnInit {
       documentNumberPatience: [, Validators.required]
     });
   }
-}
+} 

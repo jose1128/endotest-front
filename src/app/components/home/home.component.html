@@ -131,10 +131,10 @@ body{
   <div class="col-9">
     <h4 style="margin-top: 10px; margin-bottom: 10px;">Buscar examenes</h4>
     <div class="col-9">
-        <form action="" class="">
+        <form [formGroup]="findDiagnostic"> 
             <div class="input-group mb-3">
-                <input type="text" class="form-control form-control-lg" placeholder="Ingrese cedula del paciente">
-                <button type="submit" class="input-group-text btn-success" style="margin-left: 2PX;"> Buscar</button>
+                <input type="text" class="form-control form-control-lg" placeholder="Ingrese cedula del paciente" formControlName="clientDocument">
+                <button type="submit" class="input-group-text btn-success" style="margin-left: 2PX;" (click)="searchClient()"> Buscar</button>
             </div>
         </form>
     </div>
@@ -142,29 +142,16 @@ body{
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th>Numero Documento</th>
+                <th>Nombre</th>
+                <th>Ver</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <td>3</td>
+                <td>Larry the Bird</td>
+                <td>8</td>
               </tr>
             </tbody>
           </table>

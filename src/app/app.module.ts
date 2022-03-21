@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateDiagnosticComponent } from './diagnostic/create-diagnostic/create-diagnostic.component';
+import { CreateDiagnosticComponent } from './components/diagnostic/create-diagnostic/create-diagnostic.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
@@ -14,6 +14,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ClientComponent } from './components/client/client.component';
 import { PdfComponent } from './components/pdf/pdf.component';
 import { LoginComponent } from './components/login/login.component';
+import { ListDiagnosticsComponent } from './components/diagnostic/list-diagnostics/list-diagnostics.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     ClientComponent,
     PdfComponent,
-    LoginComponent
+    LoginComponent,
+    ListDiagnosticsComponent
   ],
   imports: [
     BrowserModule,
