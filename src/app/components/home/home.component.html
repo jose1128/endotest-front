@@ -106,7 +106,7 @@ body{
             <ul>
               <li>
                   <a href="#">
-                      <span class="icon"><i class="fas fa-home"></i></span>
+                      <span class="icon"><i class="fi fi-rr-home"></i></span>
                       <span class="item">Home</span>
                   </a>
               </li>
@@ -122,7 +122,12 @@ body{
                       <span class="item">Diagnostico</span>
                   </a>
               </li>
-            
+              <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-user-friends"></i></span>
+                    <span class="item">Salir</span>
+                </a>
+              </li>
               
             </ul>
       </div>
@@ -134,7 +139,7 @@ body{
         <form action="" class="">
             <div class="input-group mb-3">
                 <input type="text" class="form-control form-control-lg" placeholder="Ingrese cedula del paciente">
-                <button type="submit" class="input-group-text btn-success" style="margin-left: 2PX;"> Buscar</button>
+                <button type="submit" class="input-group-text btn-success" style="margin-left: 2PX; width: 40px;"> Buscar</button>
             </div>
         </form>
     </div>
@@ -142,29 +147,18 @@ body{
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">PDF Examen</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">10/20/2022</th>
                 <td>Mark</td>
                 <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <td><button type="button" class="btn btn-primary" style="width: 70px;">PDF</button></td>
               </tr>
             </tbody>
           </table>
