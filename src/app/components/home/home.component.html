@@ -106,7 +106,7 @@ body{
             <ul>
               <li>
                   <a href="#">
-                      <span class="icon"><i class="fas fa-home"></i></span>
+                      <span class="icon"><i class="fi fi-rr-home"></i></span>
                       <span class="item">Home</span>
                   </a>
               </li>
@@ -122,7 +122,12 @@ body{
                       <span class="item">Diagnostico</span>
                   </a>
               </li>
-            
+              <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-user-friends"></i></span>
+                    <span class="item">Salir</span>
+                </a>
+              </li>
               
             </ul>
       </div>
@@ -142,16 +147,18 @@ body{
         <table class="table">
             <thead>
               <tr>
-                <th>Numero Documento</th>
-                <th>Nombre</th>
-                <th>Ver</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">PDF Examen</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>3</td>
-                <td>Larry the Bird</td>
-                <td>8</td>
+                <th scope="row">10/20/2022</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td><button type="button" class="btn btn-primary" style="width: 70px;">PDF</button></td>
               </tr>
             </tbody>
           </table>
