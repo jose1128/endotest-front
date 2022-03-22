@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { Diagnostic } from '../../interfaces/diagnostic.interface';
 import { DiagnosticResponse } from 'src/app/interfaces/response.diagnostic.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { DiagnosticService } from 'src/app/services/diagnostic/diagnostic.service';
 
 @Component({
   selector: 'app-pdf',
@@ -11,11 +11,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./pdf.component.css']
 })
 export class PdfComponent implements OnInit {
-  @Input('dianostic') dianostic: DiagnosticResponse;
+  dianostic: DiagnosticResponse;
 
-  constructor(private router: Router) { }
+  constructor(public route: ActivatedRoute ,
+              private diagnosticService: DiagnosticService) {
+  }
 
   ngOnInit(): void {
+    const routeData = this.route.snapshot.paramMap;
+    const diagnosticId = routeData.get('idDiagnostic');
+    this.diagnosticService.getExamById(diagnosticId).subscribe({
+      next: (response : DiagnosticResponse) => {
+        console.log(response)
+        this.dianostic = response
+      },
+      error: (err) => console.log(err)
+    });
   }
 
   public downloadPDF(): void {

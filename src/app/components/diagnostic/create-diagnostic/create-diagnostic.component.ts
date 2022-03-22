@@ -20,7 +20,6 @@ export class CreateDiagnosticComponent implements OnInit {
   public idPerson: Number;
   public image: String;
   public diagnosticData: DiagnosticResponse;
-  public isVisiblePdf : Boolean;
   public isVisibleFindUser: Boolean;
 
   constructor(
@@ -32,7 +31,6 @@ export class CreateDiagnosticComponent implements OnInit {
     this.buildFormDiagnostic();
     this.buildFormFindClient();
     this.customerFound = false;
-    this.isVisiblePdf = false;
     this.isVisibleFindUser = true;
   }
 
@@ -62,12 +60,10 @@ export class CreateDiagnosticComponent implements OnInit {
           '',
           'success'
         );
-        console.log(diagnosticResponse)
         this.diagnosticForm.reset();
         this.customerFound = false;
         this.diagnosticData = diagnosticResponse;
         this.customerFound = false;
-        this.isVisiblePdf = true;
       },
       error: (e) => {
         console.log(e)
@@ -78,7 +74,6 @@ export class CreateDiagnosticComponent implements OnInit {
         })
         this.diagnosticForm.reset();
         this.customerFound = false;
-        this.isVisiblePdf = false;
       }
     });
   }
@@ -125,6 +120,7 @@ export class CreateDiagnosticComponent implements OnInit {
           title: 'Oops...',
           text: `${e.error}`,
         })
+        console.log(e);
         this.findPatienceForm.reset();
       }
     });
@@ -132,6 +128,7 @@ export class CreateDiagnosticComponent implements OnInit {
 
   handleFileInput(event: any) {
     Array.from(event.target.files).forEach((image: any) => {
+      console.log(image)
       this.files.push(image);
     });
   }

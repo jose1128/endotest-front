@@ -31,6 +31,22 @@ export class HomeComponent implements OnInit {
       })
       return;
     }
+
+    const documentNumber = this.findDiagnostic.value.clientDocument;
+    this.diagnosticService.getDiagnosticsOfClientByDocumentNumber(documentNumber).subscribe({
+      next: response => {
+        this.diagnosticList = response
+        this.findDiagnostic.reset();
+      },
+      error: err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `${err.error}`,
+        })
+        this.findDiagnostic.reset();
+      }
+    });
   }
 
   private buildFindDiagnostic(){

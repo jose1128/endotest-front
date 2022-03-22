@@ -47,7 +47,7 @@
           <div class="col-sm-6">
               <div class="form-group">
                   <label for="name">Nombre</label>
-                  <input type="text" class="form-control" formControlName="idPatient" readonly=true>
+                  <input type="text" class="form-control" formControlName="idPatiente" readonly=true>
               </div>          
           </div>
           <div class="col-sm-6">
@@ -85,7 +85,7 @@
       <div class="col-sm-12">
           <div class="form-group">
               <label for="comment">Descripción:</label>
-              <textarea class="form-control" rows="20" id="comment" style="font-size: 12;">
+              <textarea class="form-control" rows="20" id="comment" style="font-size: 12;" formControlName="observations">
                     ESOFAGO:
                     Luz conservada, peristaltismo positivo, paredes que se distienden fácilmente, mucosa sana en su tercio proximal, medio y distal. Cardias a los 35cm, pinza diafragmática a los 37cm. No se aprecia hernia hiatal.
                     ESTOMAGO:
@@ -136,7 +136,6 @@
         </form>
       </div>    
     </div>
-    <app-pdf [dianostic]="diagnosticData" *ngIf="isVisiblePdf"></app-pdf>
 </div>
 
   

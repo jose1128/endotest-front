@@ -27,7 +27,6 @@ export class DiagnosticService {
         'idSpecialist': diagnosticData.idSpecialist
       }),
     };
-
     const formData = new FormData()
   
     formData.append("image1", diagnosticData.filesToUpload[0]);
@@ -44,5 +43,10 @@ export class DiagnosticService {
   getDiagnosticsOfClientByDocumentNumber(documentNumber:  String) : Observable<DiagnosticResponse[]>{
     const url = `${ this.apiUrl }/exam/${documentNumber }/client`;
     return this.http.get<DiagnosticResponse[]>(url);
+  }
+
+  getExamById(idDiagnostic: String){
+    const url = `${ this.apiUrl }/exam/${ idDiagnostic }`;
+    return this.http.get<DiagnosticResponse>(url);
   }
 }

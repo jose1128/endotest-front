@@ -154,11 +154,11 @@ body{
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">10/20/2022</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><button type="button" class="btn btn-primary" style="width: 70px;">PDF</button></td>
+              <tr *ngFor="let diagnostic of diagnosticList">
+                <th>{{diagnostic.date | date:'medium'}}</th>
+                <td>{{diagnostic.patient.documentNumber}}</td>
+                <td>{{diagnostic.patient.name}}</td>
+                <td><button type="button" class="btn btn-primary" style="width: 70px;" [routerLink]="['/diagnostico/pdf/'+ diagnostic.id]">PDF</button></td>
               </tr>
             </tbody>
           </table>
