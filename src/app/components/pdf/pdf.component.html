@@ -51,7 +51,7 @@
         <table>
             <tr>
                 <th>
-                    <h2>Medico:</h2>
+                    <h2>Médico:</h2>
                 </th>
                 <td [width]="500">
                     <h2>{{dianostic.specialist.name}}</h2>
@@ -60,7 +60,7 @@
                     <h2>Fecha:</h2>
                 </th>
                 <td [width]="500">
-                    <h2>10/02/2020</h2>
+                    <h2>{{dianostic.date | date: 'shortDate'}}</h2>
                 </td>
             </tr>
             <tr>
@@ -119,11 +119,41 @@
     <br>
     <div>
         <h1>
+            <p><b>Antecedentes:</b></p>
+        </h1>
+       
+        <P [innerHTML]="dianostic.antecedent" style="font-size: 16px;"></P>
+
+        <br>
+    </div>
+    <br>
+    <div>
+        <h1>
+            <p><b>Examen fisico:</b></p>
+        </h1>
+       
+        <P [innerHTML]="dianostic.physicalExam" style="font-size: 16px;"></P>
+
+        <br>
+    </div>
+    <br>
+    <div>
+        <h1>
+            <p><b>Motivo de consulta:</b></p>
+        </h1>
+       
+        <P [innerHTML]="dianostic.reasonForConsultation" style="font-size: 16px;"></P>
+
+        <br>
+    </div>
+    <br>
+    <div>
+        <h1>
             <p><b>Descripcion:</b></p>
         </h1>
-        <h2>
-            {{dianostic.observations}}
-        </h2>
+       
+        <P [innerHTML]="dianostic.observations" style="font-size: 16px;"></P>
+
         <br>
     </div>
 </div>
