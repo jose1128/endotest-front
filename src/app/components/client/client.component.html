@@ -1,24 +1,24 @@
-<div class="container-fluid"> 
-  <div class="text-center">   
-    <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
-  </div>
-</div> 
-<div class="col-12">
-  <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
-    </ol>
-  </nav>
-</div>
 <div class="container-fluid">
+  <div class="container-fluid"> 
+    <div class="text-center">   
+      <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
+    </div>
+  </div> 
+  <div class="col-12">
+    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+      </ol>
+    </nav>
+  </div>
   <div class="row content">
+    <h2>Crear Paciente</h2>
     <div class="col-sm-12">
-      <hr>
       <form action="G:\Endotest_pro\Endo_probe\Report.py">
         <div class="col-sm-6">
             <div class="form-group">
                 <label for="name">Nombres</label>
-                <input type="name" class="form-control" id="name">
+                <input type="text" class="form-control" id="nombre">
             </div>          
         </div>
         <div class="col-sm-6">
@@ -27,54 +27,56 @@
               <input type="eps" class="form-control" id="eps">
             </div>
         </div>       
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="eps">Eps:</label>
-            <input type="eps" class="form-control" id="eps">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="eps">Eps:</label>
+                <input type="eps" class="form-control" id="eps">
+              </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+              <label for="pwd">Documento:</label>
+              <input type="password" class="form-control" id="pwd">
+        </div>
+        </div>  
+        <div class="col-sm-6">
+          <div class="form-group">
+              <label for="telephone">Telefono:</label>
+              <input type="telephone" class="form-control" id="telephone">      
           </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-          <label for="pwd">Documento:</label>
-          <input type="password" class="form-control" id="pwd">
-      </div>
-  </div>  
-    <div class="col-sm-6">
-      <div class="form-group">
-          <label for="telephone">Telefono:</label>
-          <input type="telephone" class="form-control" id="telephone">      
-      </div>
-  </div>
-  <div class="col-sm-2">
-      <div class="form-group">
-        <label for="form-select">Tipo de documento:</label>   
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Seleccionar</option>
-          <option value="1">Cedula</option>
-          <option value="2">Cedula de extrangeria</option>
-          <option value="3">Tarjeta de identidad</option>
-        </select>
-      </div>    
-  </div>
-  <div class="col-sm-3">
-      <div class="form-group">
-        <label for="form-select">Genero:</label>   
-        <br>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Seleccionar</option>
-          <option value="1">Masculino</option>
-          <option value="2">Femenino</option>
-        </select>
-      </div>
-  </div>
-  <div class="col-sm-12">
-    <div class="form-group">
-        <label for="record">Antecedentes:</label>
-        <textarea class="form-control" rows="5" id="exam"></textarea>
-      </div>
-  </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+              <label for="form-select">Tipo de documento:</label>   
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccionar</option>
+                <option value="1">Cedula</option>
+                <option value="2">Cedula de extrangeria</option>
+                <option value="3">Tarjeta de identidad</option>
+              </select>
+            </div>    
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+              <label for="form-select">Genero:</label>   
+              <br>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccionar</option>
+                <option value="1">Masculino</option>
+                <option value="2">Femenino</option>
+              </select>
+            </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="form-group">
+              <label for="record">Antecedentes:</label>
+              <textarea class="form-control" rows="5" id="exam"></textarea>
+            </div>
+        </div>
         <div class="col-sm-6">
             <button type="submit" class="btn btn-success">Guardar</button>
         </div>    
       </form>
-    </div>  
+    </div> 
+  </div>   
+</div>  

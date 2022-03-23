@@ -1,20 +1,21 @@
-<div class="container-fluid"> 
-  <div class="text-center">   
-    <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
+
+<div class="container-fluid" *ngIf="isVisibleFindUser">
+  <div class="container-fluid"> 
+    <div class="text-center">   
+      <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
+    </div>
+  </div> 
+  <div class="col-12">
+    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+      </ol>
+    </nav>
   </div>
-</div> 
-<div class="col-12">
-  <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
-    </ol>
-  </nav>
-</div>
-<div class="container-fluid">
   <div class="container">
-    <h2 *ngIf="isVisibleFindUser">Buscar Paciente</h2>
+    <h2>Buscar Paciente</h2>
     <!--<img src="data:image/png;base64,{{image}}" alt="" width="auto">-->
-    <form [formGroup]="findPatienceForm" *ngIf="isVisibleFindUser">
+    <form [formGroup]="findPatienceForm">
       <div class="form-group">
         <label for="email">Nro. Documento</label>
         <input type="email" class="form-control me-2" formControlName="documentNumberPatience">
@@ -25,24 +26,25 @@
       </div>
     </form>
   </div>
+</div>
 
 <div class="container-fluid" *ngIf="customerFound">
-  <div class="container"> 
-    <div class="col-3" style="margin-left: auto;margin-right: auto;">   
-      <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" class="d-block" alt="Logo Endotest" width="200px">
-    </div> 
+  <div class="container-fluid"> 
+    <div class="text-center">   
+      <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
+    </div>
+  </div> 
+  <div class="col-12">
+    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+      </ol>
+    </nav>
   </div>
-<div class="col-12">
-  <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-    </ol>
-  </nav>
-</div>
 <div class="container-fluid">
     <div class="row content">
       <div class="col-sm-12">
-        <h2>Examen</h2>
+        <h2>Crear Diagnostico</h2>
         <form [formGroup]="diagnosticForm">
           <div class="col-sm-6">
               <div class="form-group">

@@ -53,7 +53,7 @@ export class ClientComponent implements OnInit {
       next: (response: Person) => {
         console.log(response);
         Swal.fire(
-          `El cliente ${personData.name} fue creado exitosamente`,
+          `El paciente ${personData.name} fue creado exitosamente`,
           '',
           'success'
         );
@@ -63,7 +63,7 @@ export class ClientComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Hubo un error creando el cliente, intentelo de nuevo',
+          text: 'Hubo un error creando el paciente, intentelo de nuevo',
         })
       }
     });

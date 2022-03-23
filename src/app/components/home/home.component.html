@@ -105,25 +105,25 @@ body{
             </div>
             <ul>
               <li>
-                  <a href="#">
+                  <a [routerLink]="['/home']">
                       <span class="icon"><i class="fi fi-rr-home"></i></span>
                       <span class="item">Home</span>
                   </a>
               </li>
               <li>
-                  <a href="../client/client.component.html">
+                  <a [routerLink]="['/paciente']">
                       <span class="icon"><i class="fas fa-desktop"></i></span>
                       <span class="item">Pacientes</span>
                   </a>
               </li>
               <li>
-                  <a href="#">
+                  <a [routerLink]="['/diagnostico']">
                       <span class="icon"><i class="fas fa-user-friends"></i></span>
                       <span class="item">Diagnostico</span>
                   </a>
               </li>
               <li>
-                <a href="#">
+                <a [routerLink]="['/login']">
                     <span class="icon"><i class="fas fa-user-friends"></i></span>
                     <span class="item">Salir</span>
                 </a>

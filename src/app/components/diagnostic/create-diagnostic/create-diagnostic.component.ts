@@ -108,7 +108,7 @@ export class CreateDiagnosticComponent implements OnInit {
             this.diagnosticForm.controls['idPatient'].setValue(patienceResponse.documentNumber);
             this.findPatienceForm.reset();
           } else if (result.isDenied) {
-            Swal.fire('Si el cliente no fue encontrado, intentalo de nuevo', '', 'info')
+            Swal.fire('Si el Paciente no fue encontrado, intentalo de nuevo', '', 'info')
             this.findPatienceForm.reset();
             this.customerFound = false;
           }
