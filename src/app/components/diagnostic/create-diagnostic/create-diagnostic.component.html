@@ -16,8 +16,8 @@
     <h2>Buscar Paciente</h2>
     <form [formGroup]="findPatienceForm">
       <div class="form-group">
-        <label for="email">Nro. Documento</label>
-        <input type="email" class="form-control me-2" formControlName="documentNumberPatience">
+        <label for="text">Nro. Documento</label>
+        <input type="text" class="form-control me-2" formControlName="documentNumberPatience">
       </div>
       <div class="form-group">
         <button class="btn btn-outline-success" type="submit" (click)="searchClient()" style="margin-right: 10px;">Crear diagnostico</button>
@@ -86,7 +86,7 @@
       <div class="col-sm-12">
           <div class="form-group">
               <label for="comment">Descripción:</label>
-              <textarea class="form-control" rows="20" id="comment" style="font-size: 12;" formControlName="observations"></textarea>
+              <textarea class="form-control" rows="20" cols="20"  id="comment" style="font-size: 14;" formControlName="observations"></textarea>
             </div>    
       </div>
       <div class="col-sm-9">
