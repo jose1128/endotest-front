@@ -8,8 +8,8 @@ import { PersonRequest } from '../../interfaces/request/person.request.interface
   providedIn: 'root'
 })
 export class PersonService {
-  //private apiUrl = "https://endotest-app.herokuapp.com/person"
-  private apiUrl = "http://localhost:8080/person"
+  private apiUrl = "https://endotest-app.herokuapp.com/person"
+  //private apiUrl = "http://localhost:8080/person"
 
   constructor(private http: HttpClient) { }
 

@@ -7,8 +7,8 @@ import { Gender } from 'src/app/interfaces/gender.interface';
   providedIn: 'root'
 })
 export class GenderService {
-  //private apiUrl = "https://endotest-app.herokuapp.com"
-  private apiUrl = "http://localhost:8080"
+  private apiUrl = "https://endotest-app.herokuapp.com"
+  //private apiUrl = "http://localhost:8080"
 
   constructor(private http: HttpClient) { }
 
