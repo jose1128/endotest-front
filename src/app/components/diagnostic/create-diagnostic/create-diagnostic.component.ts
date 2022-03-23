@@ -43,13 +43,17 @@ export class CreateDiagnosticComponent implements OnInit {
       })
     }
     const idSpecialist = localStorage.getItem("idPerson");
+
     let observation: string = this.diagnosticForm.value.observations
-    console.log( observation.replace(/(\r\n|\n|\r)/gm, ""))
+    let antecedent: string = this.diagnosticForm.value.antecedent
+    let reasonForConsultation: string = this.diagnosticForm.value.reasonForConsultation
+    let physicalExam: string = this.diagnosticForm.value.physicalExam
+
     const diagnosticInfo : Diagnostic = {
       eps : this.diagnosticForm.value.eps,
-      antecedent: this.diagnosticForm.value.antecedent,
-      reasonForConsultation : this.diagnosticForm.value.reasonForConsultation,
-      physicalExam: this.diagnosticForm.value.physicalExam,
+      antecedent: antecedent.replace(/(\r\n|\n|\r)/gm, "").trim(),
+      reasonForConsultation : reasonForConsultation.replace(/(\r\n|\n|\r)/gm, "").trim(),
+      physicalExam: physicalExam.replace(/(\r\n|\n|\r)/gm, "").trim(),
       observations: observation.replace(/(\r\n|\n|\r)/gm, "").trim(),
       idPatient : this.idPerson.toString(),
       idSpecialist: idSpecialist,
