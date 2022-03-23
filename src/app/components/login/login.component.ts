@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/request/user.request.interface';
 import { LoginService } from 'src/app/services/login/login.service';
 import Swal from 'sweetalert2';
+import { LoginResponse } from '../../interfaces/response/login.response.interface';
 
 @Component({
   selector: 'app-login',
@@ -36,10 +37,10 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.userName,
       password: this.loginForm.value.passwd
     };
-    console.log(userData)
     this.loginService.login(userData).subscribe({
-      next: (response: any) =>{
+      next: (response: LoginResponse) => {
         if(response.status === "OK"){
+          localStorage.setItem("idPerson", response.idPerson);
           this.router.navigate(['home']);
         }else{
           alert("Error en el login")

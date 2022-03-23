@@ -14,7 +14,6 @@
   </div>
   <div class="container">
     <h2>Buscar Paciente</h2>
-    <!--<img src="data:image/png;base64,{{image}}" alt="" width="auto">-->
     <form [formGroup]="findPatienceForm">
       <div class="form-group">
         <label for="email">Nro. Documento</label>
@@ -49,7 +48,7 @@
           <div class="col-sm-6">
               <div class="form-group">
                   <label for="name">Nombre</label>
-                  <input type="text" class="form-control" formControlName="idPatiente" readonly=true>
+                  <input type="text" class="form-control" formControlName="namePatience" readonly=true>
               </div>          
           </div>
           <div class="col-sm-6">
@@ -87,25 +86,7 @@
       <div class="col-sm-12">
           <div class="form-group">
               <label for="comment">Descripción:</label>
-              <textarea class="form-control" rows="20" id="comment" style="font-size: 12;" formControlName="observations">
-                    ESOFAGO:
-                    Luz conservada, peristaltismo positivo, paredes que se distienden fácilmente, mucosa sana en su tercio proximal, medio y distal. Cardias a los 35cm, pinza diafragmática a los 37cm. No se aprecia hernia hiatal.
-                    ESTOMAGO:
-                    Vacío en ayunas. Paredes flexibles, pliegues de aspecto y características normales, mucosa fundica y corporal normal, mucosa antral hiperemica con inflamatorio fino, sin ulceras, ni tumores. Se toman biopsias de antro.
-                    En retro visión cardias normal. Píloro centrado.
-                    DUODENO:
-                    Bulbo duodenal mucosa sana. Segunda porción normal. Papila normal.
-                    DIAGNOSTICO:
-
-                    INDICACION:
-                    Piel perineal de aspecto normal. No hay hemorroides externas, fistula ni fisura.
-                    TACTO RECTO:
-                    Esfínter tónico, ampolla recta vacía, no se palpan masas.
-                    VISUALIZACION:
-                    Excelente preparación: se avanza hasta el ciego sin dificultad apreciando colon de paredes elásticas y mucosa de aspecto sano, no hay divertículos, no pólipos ni tumor. Ciego y valvula ileocecal de aspecto normal.
-                    DIAGNOSTICO:
-                    Colonoscopia total normal.
-              </textarea>
+              <textarea class="form-control" rows="20" id="comment" style="font-size: 12;" formControlName="observations"></textarea>
             </div>    
       </div>
       <div class="col-sm-9">

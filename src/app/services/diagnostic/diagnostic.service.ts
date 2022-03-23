@@ -8,8 +8,8 @@ import { DiagnosticResponse } from 'src/app/interfaces/response.diagnostic.inter
   providedIn: 'root'
 })
 export class DiagnosticService {
-  private apiUrl = "https://endotest-app.herokuapp.com"
-  //private apiUrl = "http://localhost:8080"
+  //private apiUrl = "https://endotest-app.herokuapp.com"
+  private apiUrl = "http://localhost:8080"
 
   constructor(private http: HttpClient) { }
 

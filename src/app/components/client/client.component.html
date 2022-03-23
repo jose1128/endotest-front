@@ -14,45 +14,42 @@
   <div class="row content">
     <h2>Crear Paciente</h2>
     <div class="col-sm-12">
-      <form action="G:\Endotest_pro\Endo_probe\Report.py">
+      <form [formGroup]="clientForm">
         <div class="col-sm-6">
             <div class="form-group">
                 <label for="name">Nombres</label>
-                <input type="text" class="form-control" id="nombre">
+                <input type="text" class="form-control" formControlName="clientName">
             </div>          
         </div>
         <div class="col-sm-6">
           <div class="form-group">
               <label for="eps">Direccion:</label>
-              <input type="eps" class="form-control" id="eps">
+              <input type="eps" class="form-control" formControlName="clientAddress">
             </div>
         </div>       
         <div class="col-sm-6">
             <div class="form-group">
                 <label for="eps">Eps:</label>
-                <input type="eps" class="form-control" id="eps">
+                <input type="eps" class="form-control" formControlName="eps">
               </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
               <label for="pwd">Documento:</label>
-              <input type="password" class="form-control" id="pwd">
+              <input type="text" class="form-control" formControlName="documentNumber">
         </div>
         </div>  
         <div class="col-sm-6">
           <div class="form-group">
               <label for="telephone">Telefono:</label>
-              <input type="telephone" class="form-control" id="telephone">      
+              <input type="telephone" class="form-control" formControlName="telephone">      
           </div>
         </div>
         <div class="col-sm-2">
             <div class="form-group">
               <label for="form-select">Tipo de documento:</label>   
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Seleccionar</option>
-                <option value="1">Cedula</option>
-                <option value="2">Cedula de extrangeria</option>
-                <option value="3">Tarjeta de identidad</option>
+              <select class="form-select" aria-label="Default select example" formControlName="documentType">
+                <option *ngFor="let documentType of documentTypeList" value="{{documentType.id}}">{{documentType.description}}</option>
               </select>
             </div>    
         </div>
@@ -60,21 +57,13 @@
             <div class="form-group">
               <label for="form-select">Genero:</label>   
               <br>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Seleccionar</option>
-                <option value="1">Masculino</option>
-                <option value="2">Femenino</option>
+              <select class="form-select" aria-label="Default select example" formControlName="gender">
+                <option *ngFor="let gender of genderList" value="{{gender.id}}">{{gender.description}}</option>
               </select>
             </div>
         </div>
-        <div class="col-sm-12">
-          <div class="form-group">
-              <label for="record">Antecedentes:</label>
-              <textarea class="form-control" rows="5" id="exam"></textarea>
-            </div>
-        </div>
         <div class="col-sm-6">
-            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="submit" class="btn btn-success" (click)="createClient()">Guardar</button>
         </div>    
       </form>
     </div> 

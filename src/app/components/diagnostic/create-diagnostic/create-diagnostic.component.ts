@@ -42,14 +42,17 @@ export class CreateDiagnosticComponent implements OnInit {
         text: 'Alguno de los campos se encuentra vacio',
       })
     }
+    const idSpecialist = localStorage.getItem("idPerson");
+    let observation: string = this.diagnosticForm.value.observations
+    console.log( observation.replace(/(\r\n|\n|\r)/gm, ""))
     const diagnosticInfo : Diagnostic = {
       eps : this.diagnosticForm.value.eps,
       antecedent: this.diagnosticForm.value.antecedent,
       reasonForConsultation : this.diagnosticForm.value.reasonForConsultation,
       physicalExam: this.diagnosticForm.value.physicalExam,
-      observations: this.diagnosticForm.value.observations,
+      observations: observation.replace(/(\r\n|\n|\r)/gm, "").trim(),
       idPatient : this.idPerson.toString(),
-      idSpecialist: '2',
+      idSpecialist: idSpecialist,
       filesToUpload: this.files
     }
     
@@ -60,10 +63,11 @@ export class CreateDiagnosticComponent implements OnInit {
           '',
           'success'
         );
+        console.log(diagnosticResponse);
         this.diagnosticForm.reset();
-        this.customerFound = false;
         this.diagnosticData = diagnosticResponse;
         this.customerFound = false;
+        this.isVisibleFindUser = true;
       },
       error: (e) => {
         console.log(e)
@@ -74,6 +78,7 @@ export class CreateDiagnosticComponent implements OnInit {
         })
         this.diagnosticForm.reset();
         this.customerFound = false;
+        this.isVisibleFindUser = true;
       }
     });
   }
@@ -100,12 +105,12 @@ export class CreateDiagnosticComponent implements OnInit {
           denyButtonText: `No`,
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire('Crear Diagnostico', '', 'success')
             this.findPatienceForm.reset();
             this.customerFound = true;
             this.isVisibleFindUser = false;
             this.idPerson = patienceResponse.id;
             this.diagnosticForm.controls['idPatient'].setValue(patienceResponse.documentNumber);
+            this.diagnosticForm.controls['namePatience'].setValue(patienceResponse.name);
             this.findPatienceForm.reset();
           } else if (result.isDenied) {
             Swal.fire('Si el Paciente no fue encontrado, intentalo de nuevo', '', 'info')
@@ -145,6 +150,7 @@ export class CreateDiagnosticComponent implements OnInit {
       physicalExam: [, Validators.required],
       antecedent: [, Validators.required],
       idPatient: [, Validators.required],
+      namePatience: [, Validators.required],
       files: [, Validators.required]
     });
   }
