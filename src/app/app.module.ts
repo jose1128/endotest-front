@@ -15,6 +15,8 @@ import { ClientComponent } from './components/client/client.component';
 import { PdfComponent } from './components/pdf/pdf.component';
 import { LoginComponent } from './components/login/login.component';
 import { ListDiagnosticsComponent } from './components/diagnostic/list-diagnostics/list-diagnostics.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
+import { NavbarComponent } from './components/shared/navbar/navbar/navbar.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ListDiagnosticsComponent } from './components/diagnostic/list-diagnosti
     ClientComponent,
     PdfComponent,
     LoginComponent,
-    ListDiagnosticsComponent
+    ListDiagnosticsComponent,
+    LoaderComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

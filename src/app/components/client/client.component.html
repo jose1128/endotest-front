@@ -1,71 +1,107 @@
-<div class="container-fluid">
-  <div class="container-fluid"> 
-    <div class="text-center">   
-      <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
-    </div>
-  </div> 
-  <div class="col-12">
-    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
-      </ol>
-    </nav>
+<app-loader *ngIf="loaderVisible"></app-loader>
+<app-navbar></app-navbar>
+
+
+<div class="container-fluid" *ngIf="!loaderVisible">
+  <div class="alert alert-success">
+    <h3><img src="../../../assets/paciente.png" style="width: 30px;"><strong>Crear Paciente</strong></h3>
   </div>
-  <div class="row content">
-    <h2>Crear Paciente</h2>
-    <div class="col-sm-12">
+</div>
+
+<div class="container-fluid" *ngIf="!loaderVisible">
+  <div class="card">
+    <div class="card-body">
       <form [formGroup]="clientForm">
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label for="name">Nombres</label>
-                <input type="text" class="form-control" formControlName="clientName">
-            </div>          
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-              <label for="eps">Direccion:</label>
-              <input type="eps" class="form-control" formControlName="clientAddress">
-            </div>
-        </div>       
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label for="eps">Eps:</label>
-                <input type="eps" class="form-control" formControlName="eps">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Nombres</span>
               </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-              <label for="pwd">Documento:</label>
-              <input type="text" class="form-control" formControlName="documentNumber">
-        </div>
-        </div>  
-        <div class="col-sm-6">
-          <div class="form-group">
-              <label for="telephone">Telefono:</label>
-              <input type="telephone" class="form-control" formControlName="telephone">      
+              <input type="text" class="form-control" formControlName="clientName">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Direccion</span>
+              </div>
+              <input type="text" class="form-control" formControlName="clientAddress">
+            </div>
           </div>
         </div>
-        <div class="col-sm-2">
-            <div class="form-group">
-              <label for="form-select">Tipo de documento:</label>   
-              <select class="form-select" aria-label="Default select example" formControlName="documentType">
-                <option *ngFor="let documentType of documentTypeList" value="{{documentType.id}}">{{documentType.description}}</option>
-              </select>
-            </div>    
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Documento</span>
+              </div>
+              <input type="text" class="form-control" formControlName="documentNumber">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Telefono</span>
+              </div>
+              <input type="text" class="form-control" formControlName="telephone">
+            </div>
+          </div>
         </div>
-        <div class="col-sm-3">
-            <div class="form-group">
-              <label for="form-select">Genero:</label>   
-              <br>
-              <select class="form-select" aria-label="Default select example" formControlName="gender">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Tipo de documento</span>
+              </div>
+              <select class="form-control" formControlName="documentType">
+                <option *ngFor="let documentType of documentTypeList" value="{{documentType.id}}">
+                  {{documentType.description}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Genero</span>
+              </div>
+              <select class="form-control" aria-label="Default select example" formControlName="gender">
                 <option *ngFor="let gender of genderList" value="{{gender.id}}">{{gender.description}}</option>
               </select>
             </div>
+          </div>
         </div>
-        <div class="col-sm-6">
-            <button type="submit" class="btn btn-success" (click)="createClient()">Guardar</button>
-        </div>    
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Eps</span>
+              </div>
+              <br>
+              <select class="form-control" aria-label="Default select example" formControlName="eps">
+                <option *ngFor="let eps of epsList" value="{{eps.id}}">{{eps.description}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Fecha Nacimiento</span>
+              </div>
+              <br>
+              <input class="form-control" type="date" formControlName="dateOfBirth" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 text-center">
+          <button type="button" class="btn btn-success" (click)="createClient()">Guardar</button>
+        </div>
+        
       </form>
-    </div> 
-  </div>   
-</div>  
+    </div>
+  </div>

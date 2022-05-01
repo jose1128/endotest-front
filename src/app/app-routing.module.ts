@@ -29,7 +29,7 @@ const routes: Routes = [
     component: ListDiagnosticsComponent
   },
   {
-    path: "diagnostico/pdf/:idDiagnostic",
+    path: "diagnostic/client/:documentNumber/pdf/:idDiagnostic",
     component: PdfComponent
   },
   {

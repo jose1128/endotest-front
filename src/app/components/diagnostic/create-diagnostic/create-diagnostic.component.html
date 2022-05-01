@@ -1,124 +1,157 @@
+<app-loader *ngIf="loaderVisible"></app-loader>
+<app-navbar></app-navbar>
 
-<div class="container-fluid" *ngIf="isVisibleFindUser">
-  <div class="container-fluid"> 
-    <div class="text-center">   
-      <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
-    </div>
-  </div> 
-  <div class="col-12">
-    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
-      </ol>
-    </nav>
-  </div>
-  <div class="container">
-    <h2>Buscar Paciente</h2>
-    <form [formGroup]="findPatienceForm">
-      <div class="form-group">
-        <label for="text">Nro. Documento</label>
-        <input type="text" class="form-control me-2" formControlName="documentNumberPatience">
-      </div>
-      <div class="form-group">
-        <button class="btn btn-outline-success" type="submit" (click)="searchClient()" style="margin-right: 10px;">Crear diagnostico</button>
-        <button class="btn btn-outline-success" type="submit" [routerLink]="['/paciente']">Crear paciente nuevo</button>
-      </div>
-    </form>
+<div class="container-fluid" *ngIf="!loaderVisible">
+  <div class="alert alert-success">
+    <h3><img src="../../../../assets/diagnostico.png" style="width: 30px;"><strong>Crear Diagnostico</strong></h3>
   </div>
 </div>
 
-<div class="container-fluid" *ngIf="customerFound">
-  <div class="container-fluid"> 
-    <div class="text-center">   
-      <img src="../../../assets/Logo Endotest Medical_HORIZONTAL.png" alt="Logo Endotest" width="200px" style="padding: 10px;">
+<div *ngIf="!loaderVisible">
+  <div class="container-fluid" *ngIf="isVisibleFindUser">
+    <div class="card">
+      <div class="card-body">
+        <h2>Buscar Paciente</h2>
+        <form [formGroup]="findPatienceForm">
+          <div class="form-group">
+            <label for="text">Nro. Documento</label>
+            <input type="text" class="form-control me-2" formControlName="documentNumberPatience">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-success" type="submit" (click)="searchClient()"
+              style="margin-right: 10px;">Crear diagnostico</button>
+            <button class="btn btn-outline-success" type="submit" [routerLink]="['/paciente']">Crear paciente
+              nuevo</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div> 
-  <div class="col-12">
-    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
-      </ol>
-    </nav>
   </div>
-<div class="container-fluid">
-    <div class="row content">
-      <div class="col-sm-12">
+
+  <div class="container-fluid" *ngIf="customerFound">
+    <div class="card">
+      <div class="card-body">
         <h2>Crear Diagnostico</h2>
         <form [formGroup]="diagnosticForm">
-          <div class="col-sm-6">
-              <div class="form-group">
-                  <label for="name">Nombre</label>
-                  <input type="text" class="form-control" formControlName="namePatience" readonly=true>
-              </div>          
-          </div>
-          <div class="col-sm-6">
-              <div class="form-group">
-                  <label for="pwd">Documento:</label>
-                  <input type="text" class="form-control" formControlName="idPatient" readonly=true>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Nombres</span>
                 </div>
-          </div>         
-      <div class="col-sm-6">
-          <div class="form-group">
-              <label for="eps">Eps:</label>
-              <input type="text" class="form-control" formControlName="eps" placeholder="Nombre de la EPS">
+                <input type="text" class="form-control" formControlName="namePatience" readonly=true>
+              </div>
             </div>
-      </div>
-      <div class="col-sm-12">
-          <div class="form-group">
-              <label for="record">Antecedentes:</label>
-              <textarea class="form-control" formControlName="antecedent" rows="5" id="exam" placeholder="Antecedentes del paciente"></textarea>
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Documento</span>
+                </div>
+                <input type="text" class="form-control" formControlName="idPatient" readonly=true>
+              </div>
             </div>
-      </div>
-      <div class="col-sm-12">
-        <div class="form-group">
-            <label for="exam">Motivo de consulta:</label>
-            <textarea class="form-control" formControlName="reasonForConsultation"
-            placeholder="Razon de la consulta" rows="5" id="exam"></textarea>
-          </div>    
-    </div>
-      <div class="col-sm-12">
-          <div class="form-group">
-              <label for="exam">Examen fisico:</label>
-              <textarea class="form-control" formControlName="physicalExam" placeholder="Examenes Fisicos" rows="5" id="exam"></textarea>
-            </div>    
-      </div>
+          </div>
 
-      <div class="col-sm-12">
-          <div class="form-group">
-              <label for="comment">Descripción:</label>
-              <textarea class="form-control" rows="20" cols="20"  id="comment" style="font-size: 14;" formControlName="observations"></textarea>
-            </div>    
-      </div>
-      <div class="col-sm-9">
-        <div class="form-group">
-          <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Seleccione las imagenes</label>
-            <input class="form-control" type="file" formControlName="files" (change)="handleFileInput($event)">
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">EPS</span>
+                </div>
+                <input type="text" class="form-control" formControlName="eps" readonly="true">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Tipo Examen</span>
+                </div>
+                <select class="form-control" aria-label="Default select example" formControlName="examType">
+                  <option *ngFor="let examType of examTypeList" value="{{examType.id}}">
+                    {{examType.description}}</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
-      </div> 
-      <div class="col-sm-9">
-        <div class="form-group">
-          <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Seleccione las imagenes</label>
-            <input class="form-control" type="file" formControlName="files" (change)="handleFileInput($event)">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="record">Antecedentes:</label>
+                <textarea class="form-control" formControlName="antecedent" rows="5"
+                  placeholder="Antecedentes del paciente"></textarea>
+              </div>
+            </div>
           </div>
-        </div>
-      </div> 
-      <div class="col-sm-9">
-        <div class="form-group">
-          <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Seleccione las imagenes</label>
-            <input class="form-control" type="file" formControlName="files" (change)="handleFileInput($event)">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="exam">Motivo de consulta:</label>
+                <textarea class="form-control" formControlName="reasonForConsultation"
+                  placeholder="Razon de la consulta" rows="5" id="exam"></textarea>
+              </div>
+            </div>
           </div>
-        </div>
-      </div> 
-          <div class="col-sm-6">
-              <button type="submit" class="btn btn-success" style="margin-bottom: 10px;" (click)="createDiagnostic()">Guardar</button>
-          </div>    
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="exam">Examen fisico:</label>
+                <textarea class="form-control" formControlName="physicalExam" placeholder="Examenes Fisicos"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="comment">Descripción:</label>
+                <textarea class="form-control" rows="20" cols="20" id="comment" style="font-size: 14;"
+                  formControlName="observations"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="mb-3">
+                  <input class="form-control" type="file" formControlName="files" (change)="handleFileInput($event)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="mb-3">
+                  <input class="form-control" type="file" formControlName="files" (change)="handleFileInput($event)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="form-group">
+                <div class="mb-3">
+                  <input class="form-control" type="file" formControlName="files" (change)="handleFileInput($event)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <button type="submit" class="btn btn-success" (click)="createDiagnostic()">Guardar</button>
+            </div>
+          </div>
+
         </form>
-      </div>    
+      </div>
     </div>
-</div>
-
-  
+  </div>

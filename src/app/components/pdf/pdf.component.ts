@@ -4,6 +4,8 @@ import html2canvas from 'html2canvas';
 import { DiagnosticResponse } from 'src/app/interfaces/response.diagnostic.interface';
 import { ActivatedRoute } from '@angular/router';
 import { DiagnosticService } from 'src/app/services/diagnostic/diagnostic.service';
+import { PersonService } from '../../services/person/person.service';
+import { PatienceResponse } from 'src/app/interfaces/response/patience.response.interface';
 
 @Component({
   selector: 'app-pdf',
@@ -12,19 +14,26 @@ import { DiagnosticService } from 'src/app/services/diagnostic/diagnostic.servic
 })
 export class PdfComponent implements OnInit {
   dianostic: DiagnosticResponse;
+  patience: PatienceResponse;
 
   constructor(public route: ActivatedRoute ,
-              private diagnosticService: DiagnosticService) {
+              private diagnosticService: DiagnosticService,
+              private personService: PersonService) {
   }
 
   ngOnInit(): void {
     const routeData = this.route.snapshot.paramMap;
     const diagnosticId = routeData.get('idDiagnostic');
+    const documetNumber = routeData.get('documentNumber');
+
+
     this.diagnosticService.getExamById(diagnosticId).subscribe({
-      next: (response : DiagnosticResponse) => {
-        console.log(response)
-        this.dianostic = response
-      },
+      next: (response : DiagnosticResponse) =>  this.dianostic = response,
+      error: (err) => console.log(err)
+    });
+
+    this.personService.findPersonByDocumentNumber(Number(documetNumber)).subscribe({
+      next: (response: PatienceResponse) => this.patience =  response,
       error: (err) => console.log(err)
     });
   }

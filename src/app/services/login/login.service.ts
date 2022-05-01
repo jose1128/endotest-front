@@ -8,8 +8,8 @@ import { LoginResponse } from '../../interfaces/response/login.response.interfac
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = "https://endotest-app.herokuapp.com/user"
-  //private apiUrl = "http://localhost:8080/user"
+  //private apiUrl = "https://endotest-app.herokuapp.com/user"
+  private apiUrl = "http://localhost:8080/user"
 
   constructor(private http: HttpClient) { }
 

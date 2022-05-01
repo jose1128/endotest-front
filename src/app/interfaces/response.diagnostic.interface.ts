@@ -1,5 +1,6 @@
-import { Person } from './person.interface';
+import { Person } from './response/person.response.interface';
 import { Image } from './image.interface';
+import { ExamTypeResponse } from './response/examtype.response.interface';
 export interface DiagnosticResponse{
     id:                    number;
     date:                  Date;
@@ -10,5 +11,6 @@ export interface DiagnosticResponse{
     observations:          string;
     patient:               Person;
     specialist:            Person;
+    examType:              ExamTypeResponse;
     images:                Image[];
 }

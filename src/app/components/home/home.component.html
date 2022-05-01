@@ -1,168 +1,189 @@
 <style>
-*{
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    
-    font-family: 'Open Sans', sans-serif;
-}
+    * {
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
 
-body{
-    background: #f5f6fa;
-}
+        font-family: 'Open Sans', sans-serif;
+    }
 
-.wrapper .sidebar{
-    background: rgb(5, 68, 104);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 225px;
-    height: 100%;
-    padding: 20px 0;
-    transition: all 0.5s ease;
-}
-.wrapper .sidebar .profile{
-    margin-bottom: 30px;
-    text-align: center;
-}
+    body {
+        background: #f5f6fa;
+    }
 
-.wrapper .sidebar .profile img{
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 0 auto;
-}
+    .wrapper .sidebar {
+        background: rgb(5, 68, 104);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 225px;
+        height: 100%;
+        padding: 20px 0;
+        transition: all 0.5s ease;
+    }
 
-.wrapper .sidebar .profile h3{
-    color: #ffffff;
-    margin: 5px 0 2px;
-}
+    .wrapper .sidebar .profile {
+        margin-bottom: 30px;
+        text-align: center;
+    }
 
-.wrapper .sidebar .profile p{
-    color: rgb(206, 240, 253);
-    font-size: 12px;
-}
-.wrapper .sidebar ul li a{
-    display: block;
-    padding: 13px 30px;
-    border-bottom: 1px solid #10558d;
-    color: rgb(237, 238, 241);
-    font-size: 12px;
-    position: relative;
-}
+    .wrapper .sidebar .profile img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
 
-.wrapper .sidebar ul li a .icon{
-    color: #dee4ec;
-    width: 30px;
-    display: inline-block;
-}
-.wrapper .sidebar ul li a:hover,
-.wrapper .sidebar ul li a.active{
-    color: #0c7db1;
+    .wrapper .sidebar .profile h3 {
+        color: #ffffff;
+        margin: 5px 0 2px;
+    }
 
-    background:rgb(255, 255, 255);
-    border-right: 2px solid rgb(5, 68, 104);
-}
+    .wrapper .sidebar .profile p {
+        color: rgb(206, 240, 253);
+        font-size: 12px;
+    }
 
-.wrapper .sidebar ul li a:hover .icon,
-.wrapper .sidebar ul li a.active .icon{
-    color: #0c7db1;
-}
+    .wrapper .sidebar ul li a {
+        display: block;
+        padding: 13px 30px;
+        border-bottom: 1px solid #10558d;
+        color: rgb(237, 238, 241);
+        font-size: 12px;
+        position: relative;
+    }
 
-.wrapper .sidebar ul li a:hover:before,
-.wrapper .sidebar ul li a.active:before{
-    display: block;
-}
-.wrapper .section{
-    width: calc(100% - 225px);
-    margin-left: 225px;
-    transition: all 0.5s ease;
-}
+    .wrapper .sidebar ul li a .icon {
+        color: #dee4ec;
+        width: 30px;
+        display: inline-block;
+    }
 
-.wrapper .section .top_navbar{
-    background: rgb(7, 105, 185);
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
+    .wrapper .sidebar ul li a:hover,
+    .wrapper .sidebar ul li a.active {
+        color: #0c7db1;
 
-}
+        background: rgb(255, 255, 255);
+        border-right: 2px solid rgb(5, 68, 104);
+    }
 
+    .wrapper .sidebar ul li a:hover .icon,
+    .wrapper .sidebar ul li a.active .icon {
+        color: #0c7db1;
+    }
+
+    .wrapper .sidebar ul li a:hover:before,
+    .wrapper .sidebar ul li a.active:before {
+        display: block;
+    }
+
+    .wrapper .section {
+        width: calc(100% - 225px);
+        margin-left: 225px;
+        transition: all 0.5s ease;
+    }
+
+    .wrapper .section .top_navbar {
+        background: rgb(7, 105, 185);
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+
+    }
 </style>
-<div class="row">
-  <div class="col-3">
-    <div class="wrapper">
-      <!--Top menu -->
-      <div class="sidebar">
-         <!--profile image & text-->
-          <!--menu item-->
-            <div class="profile">
-              <img src="../../../assets/Logo Endotest perfil.jpg" alt="profile_picture">
-              <h3>EndotestSoft</h3>
-              <p>Captura de imagenes</p>
-            </div>
-            <ul>
-              <li>
-                  <a [routerLink]="['/home']">
-                      <span class="icon"><i class="fi fi-rr-home"></i></span>
-                      <span class="item">Home</span>
-                  </a>
-              </li>
-              <li>
-                  <a [routerLink]="['/paciente']">
-                      <span class="icon"><i class="fas fa-desktop"></i></span>
-                      <span class="item">Pacientes</span>
-                  </a>
-              </li>
-              <li>
-                  <a [routerLink]="['/diagnostico']">
-                      <span class="icon"><i class="fas fa-user-friends"></i></span>
-                      <span class="item">Diagnostico</span>
-                  </a>
-              </li>
-              <li>
-                <a [routerLink]="['/login']">
-                    <span class="icon"><i class="fas fa-user-friends"></i></span>
-                    <span class="item">Salir</span>
-                </a>
-              </li>
-              
-            </ul>
-      </div>
-    </div>
-  </div>
-  <div class="col-9">
-    <h4 style="margin-top: 10px; margin-bottom: 10px;">Buscar examenes</h4>
-    <div class="col-9">
-        <form [formGroup]="findDiagnostic"> 
-            <div class="input-group mb-3">
-                <input type="text" class="form-control form-control-lg" placeholder="Ingrese cedula del paciente" formControlName="clientDocument">
-                <button type="submit" class="input-group-text btn-success" style="margin-left: 2PX;" (click)="searchClient()"> Buscar</button>
-            </div>
-        </form>
-    </div>
-    <div class="col-9">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col">Documento</th>
-                <th scope="col">Nombres</th>
-                <th scope="col">PDF Examen</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let diagnostic of diagnosticList">
-                <th>{{diagnostic.date | date:'medium'}}</th>
-                <td>{{diagnostic.patient.documentNumber}}</td>
-                <td>{{diagnostic.patient.name}}</td>
-                <td><button type="button" class="btn btn-primary" style="width: 70px;" [routerLink]="['/diagnostico/pdf/'+ diagnostic.id]">PDF</button></td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
-  </div>
-</div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="wrapper">
+                <!--Top menu -->
+                <div class="sidebar">
+                    <!--profile image & text-->
+                    <!--menu item-->
+                    <div class="profile">
+                        <img src="../../../assets/Logo Endotest perfil.jpg" alt="profile_picture">
+                        <h3>EndotestSoft</h3>
+                        <p>Captura de imagenes</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <a [routerLink]="['/home']">
+                                <span class="icon"><i class="fi fi-rr-home"></i></span>
+                                <span class="item">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/paciente']">
+                                <span class="icon"><i class="fas fa-desktop"></i></span>
+                                <span class="item">Pacientes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/diagnostico']">
+                                <span class="icon"><i class="fas fa-user-friends"></i></span>
+                                <span class="item">Diagnostico</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/login']">
+                                <span class="icon"><i class="fas fa-user-friends"></i></span>
+                                <span class="item">Salir</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 style="margin-top: 10px; margin-bottom: 10px;">Buscar examenes</h4>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="center-block">
+                    <div class="col-sm-6">
+                        <form [formGroup]="findDiagnostic">
+                            <div class="input-group-prepend">
+                                <input type="text" class="form-control" placeholder="Ingrese cedula del paciente" formControlName="clientDocument">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-outline-success"
+                                    (click)="searchClient()"><img src="../../../assets/buscar.png" style="width: 20px;"></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Documento</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">PDF Examen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let diagnostic of diagnosticList">
+                            <th>{{diagnostic.date | date:'medium'}}</th>
+                            <td>{{diagnostic.patient.documentNumber}}</td>
+                            <td>{{diagnostic.patient.name}}</td>
+                            <td><button type="button" class="btn btn-primary" style="width: 70px;"
+                                    [routerLink]="['/diagnostic/client/'+ documentNumber +'/pdf/'+ diagnostic.id]">PDF</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   public findDiagnostic: FormGroup;
   public diagnosticList: DiagnosticResponse[] = [];
+  public documentNumber: string;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -32,8 +33,8 @@ export class HomeComponent implements OnInit {
       return;
     }
 
-    const documentNumber = this.findDiagnostic.value.clientDocument;
-    this.diagnosticService.getDiagnosticsOfClientByDocumentNumber(documentNumber).subscribe({
+    this.documentNumber = this.findDiagnostic.value.clientDocument;
+    this.diagnosticService.getDiagnosticsOfClientByDocumentNumber(this.documentNumber).subscribe({
       next: response => {
         this.diagnosticList = response
         this.findDiagnostic.reset();
